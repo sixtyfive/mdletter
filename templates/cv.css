@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'Avenir';
+  src: url('../fonts/AvenirLTStd-Book.woff') format('woff');
+}
+
+body{padding:2em; font: normal 10.5pt/1.4em 'Avenir' !important;}
+main{margin-top:7.5em;}
+a{text-decoration:none;}
+a:visited{color:blue;}
+h1,h2,h3,h4,p{margin:0;}
+.subtitle{font-size:200%;font-weight:bold;margin-bottom:.35em;}
+.title{font-size:150%;margin-bottom:1em;font-weight:normal;font-style:italic;color:gray;}
+h3{border-left:19px solid orange;padding-left:5px;margin-top:1.75em;border-bottom:1px solid orange;}
+h4{margin-top:1.5em;}
+#photo{height:220px;float:right;}
+#coordinates{font-size:80%;font-style:italic;float:right;margin-right:1em;margin-top:120px;}
+#coordinates p{margin-top:.35em;text-align:right;}
+dl{display:grid;grid-template-columns:max-content auto;}
+dt{grid-column-start:1;}
+dd{grid-column-start:2;}
+header dd{font-weight:bold;}
+main dl{grid-template-columns:140px auto;}
+main dt, main dd{padding-top:1em;}
+main ul{list-style:none;}
+main ul li::before{content:"\25e6";color:orange;display:inline-block;width:1em;margin-left:-1em;font-weight:bold;}
+
+@media print {
+  @page{margin:20mm 20mm 25mm 25mm; size:210mm 297mm;}
+  #content{margin-top:25mm;} /* 20+25=45mm for first page */
+  #content,ul,li{display:block;width:100%;}
+  img,pre,blockquote,table,figure,dt,dd,li{page-break-inside:avoid;}
+  #photo{height:150px;}
+  #coordinates{line-height:1.2;margin-top:79px;}
+  main dl{grid-template-columns:38mm auto;}
+  ul{margin:0 !important;padding-top:0;max-width:130mm;}
+  html,body{padding:0; margin:0;}
+  #content{width: 190mm;}
+  h3#languages{page-break-before:always;}
+  h3{font-size:125%;margin-bottom:1em;}
+}
