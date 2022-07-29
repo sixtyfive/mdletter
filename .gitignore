@@ -2,4 +2,6 @@
 *.html
 *.md
 *.jpg
+*.bmp
+*.png
 .vscode

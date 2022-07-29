@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'Avenir';
+  src: url('../fonts/AvenirLTStd-Book.woff') format('woff');
+}
+
+body{padding:2em; font: normal 10.5pt/1.4em 'Avenir' !important;}
+main{margin-top:7.5em;}
+a{text-decoration:none;}
+a:visited{color:blue;}
+
+#return_address{font-weight:bold;padding-bottom:.1em;border-bottom:1px solid black;display:inline-block;font-size:80%;}
+#time_and_place{float:right;}
+#subject{font-weight:bold;margin-top:8em;}
+#signature{position:absolute;}
+#signature img{height:100px;margin-top:-2.5em;opacity:.9;}
+#signee{margin-top:4em;}
+#attachments{margin-top:4em;padding:0;}
+#attachments li{list-style-type:circle;margin-left:.9em;}
+
+@media print {
+  @page{margin:20mm 20mm 25mm 0;size:210mm 297mm;}
+  html{padding-left:25mm !important;}
+  body{padding:0;}
+  img,pre,blockquote,table,figure,dt,dd,li{page-break-inside:avoid;}
+  html,body{padding:0; margin:0;}
+  h3{font-size:125%;margin-bottom:1em;}
+
+  #return_address{position:absolute;top:27mm;}
+  #to_address{position:absolute;top:33.9mm;}
+  #time_and_place{position:absolute;top:75mm;right:8mm;}
+  #subject{margin-top:90mm;}
+
+  #content{display:block;width:100%;width:190mm;margin-top:25mm;} /* 20+25=45mm for first page */
+  #attachments li{margin-left:4.5mm;}
+
+  .markers div{border-bottom:1px solid #aaa;width:7mm;position:absolute;left:0;}
+  #m1{top:87mm;}
+  #m2{top:148.5mm;width:3.5mm;}
+  #m3{top:192mm;}
+}
