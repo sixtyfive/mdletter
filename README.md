@@ -1,7 +1,7 @@
 # How to use
 
 1. make a copy of this repository and `cd` into it
-2. put one or both of the ".md" files from the examples directory there
+2. put one or both of the ".md" files from the examples directory into the root of your working copy
 3. type `make`
 
 # Troubleshooting
