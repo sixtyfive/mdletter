@@ -1,12 +1,12 @@
 # How to use
 
 1. make a copy of this repository and `cd` into it
-2. put either a "cv.md" or "letter.md" file (see "examples" directory) here (or both)
+2. put one or both of the ".md" files from the examples directory there
 3. type `make`
 
 # Troubleshooting
 
-Make sure the name of each ".md" file matches with the name of a HTML file from the "templates" directory.
+Make sure the name of each ".md" file matches with the name of a HTML file from the "templates" directory. If you want to create a different document type, you'll have to add a new template for it.
 
 # Prerequisites
 
