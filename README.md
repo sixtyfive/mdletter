@@ -8,6 +8,8 @@
 
 Make sure the name of each ".md" file matches with the name of a HTML file from the "templates" directory. If you want to create a different document type, you'll have to add a new template for it.
 
+If you get an error such as `unexpected "("`, make sure your Pandoc version is sufficiently up-to-date. At the time of this writing, the ArchLinux repositories had Pandoc 2.18 and 2.19 had just been released by the project. A bit of an outlier is Solus Linux which is notorious for having a horribly outdated version of Pandoc.
+
 # Prerequisites
 
 Requires the following in reasonably recent versions:
@@ -34,9 +36,17 @@ sudo apt -f install
 
 ```
 sudo eopkg it -c system.devel
-sudo eopkg it pandoc
 sudo eopkg bi --ignore-safety https://raw.githubusercontent.com/getsolus/3rd-party/master/network/web/browser/google-chrome-stable/pspec.xml
-sudo eopkg it google-chrome-*.eopkg;sudo rm google-chrome-*.eopkg
+sudo eopkg it google-chrome-*.eopkg ; sudo rm google-chrome-*.eopkg
+wget -c https://github.com/jgm/pandoc/releases/download/2.19/pandoc-2.19-linux-amd64.tar.gz # or whatever is the latest
+mkdir -p ~/.local/opt
+tar -xvzf pandoc-2.19-linux-amd64.tar.gz -C ~/.local/opt ; rm pandoc-2.19-linux-amd64.tar.gz
+cd ~/local/opt ; ln -s pandoc-2.19 pandoc
+mkdir -p ~/.local/bin
+cd ~/.local/bin
+ln -s ~/.local/opt/pandoc/bin/pandoc pandoc
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 # Why?
