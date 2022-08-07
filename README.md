@@ -41,7 +41,7 @@ sudo eopkg it google-chrome-*.eopkg ; sudo rm google-chrome-*.eopkg
 wget -c https://github.com/jgm/pandoc/releases/download/2.19/pandoc-2.19-linux-amd64.tar.gz # or whatever is the latest
 mkdir -p ~/.local/opt
 tar -xvzf pandoc-2.19-linux-amd64.tar.gz -C ~/.local/opt ; rm pandoc-2.19-linux-amd64.tar.gz
-cd ~/local/opt ; ln -s pandoc-2.19 pandoc
+cd ~/.local/opt ; ln -s pandoc-2.19 pandoc
 mkdir -p ~/.local/bin
 cd ~/.local/bin
 ln -s ~/.local/opt/pandoc/bin/pandoc pandoc
