@@ -1,16 +1,16 @@
 ---
 title: Curriculum Vitae
-subtitle: Jane Doe
+subtitle: Lara Croft
 address:
 - First line
 - 12345 second line
 - and so on
 mobile: +12(0)345/678 91011
-email: jane@doe-family.tld
-website: https://doe-family.tld/
+email: lara@croft-manor.tld
+website: https://croft-manor.co.uk/
 date-of-birth: 1st January, 1999
-nationality: Well, none
-photo: jane.jpg
+nationality: how many do you think?
+photo: lara.jpg
 ---
 
 ### Work Experience

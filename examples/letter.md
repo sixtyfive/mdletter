@@ -1,11 +1,11 @@
 ---
-author: Jane Doe
+author: Lara Croft
 from_street: Somestreet 12
 from_po_code: '12345'
 from_city: Somecity
 mobile: +12(0)345/678 12 34 5
-email: jane@doe-family.tld
-signature: signature_jane.png
+email: lara@croft-manor.co.uk
+signature: lara_signature.png
 
 addressee: John Doe
 to_street: Anotherstreet. 23
