@@ -13,26 +13,26 @@ If you get an error such as `unexpected "("`, make sure your Pandoc version is s
 # Prerequisites
 
 Requires the following in reasonably recent versions:
+
 - GNU Make
 - Pandoc
-- Google Chrome
+- Chromium or Google Chrome 
 
 ## ArchLinux-based distributions
 
 ```
-pacman -Syu base-devel pandoc google-chrome-stable
+pacman -Syu base-devel pandoc chromium
 ```
 
-## Debian-based distributions
+## Debian-based distributions such as Ubuntu
 
 ```
-sudo apt update && sudo apt install build-essential pandoc
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-sudo apt -f install
+sudo apt update && sudo apt install build-essential pandoc chromium
 ```
 
 ## Solus Linux
+
+_(the below instructions may be out of date - PRs welcome!)_
 
 ```
 sudo eopkg it -c system.devel
