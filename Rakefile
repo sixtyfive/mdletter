@@ -2,8 +2,17 @@ task :default do; system 'rake -T'; end
 
 desc 'rm *.pdf *.html'
 task :clean do
-  rm_f '*.pdf' if Dir['*.pdf'].any?
-  rm_f '*.html' if Dir['*.html'].any?
+  cmd = "rm -f *.{log,pdf,html}"
+  puts cmd
+  system cmd
+end
+
+def sensible_browser_binary
+  require 'mkmf'
+  binary_names = %w[chromium chromium-browser google-chrome google-chrome-stable google-chrome-beta]
+  puts; in_path = binary_names.map{find_executable _1}.compact
+  raise 'No usable Chrome-ish binary found. Please install Chromium or Google Chrome!' unless in_path.any?
+  in_path.first
 end
 
 desc 'md => html => pdf'
@@ -17,16 +26,16 @@ task :build do
     pdf  = md.gsub(/\.md/, '.pdf')
     `pandoc #{md} -o #{html} --css templates/#{css} --template templates/#{tpl} --standalone`
     print "#{html} "
-    `chromium --headless --print-to-pdf-no-header --no-margins --print-to-pdf=#{pdf} #{html} >/dev/null 2>&1`
+    `#{sensible_browser_binary} --headless --print-to-pdf-no-header --no-margins --print-to-pdf=#{pdf} #{html} >/dev/null 2>&1`
     print "#{pdf}\n"
   end
 end
 
 desc '*.pdf => single file'
 task :collate do
-  files = %w[letter cv-de abschlusszeugnis-berufsschule abizeugnis pruefungszeugnis-uni]
-  outname = 'Bewerbung Jonathan Schmid'
-  cmd = "gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=\"#{outname}.pdf\" #{files.map{|f| '"'+f+'.pdf"'}.join(' ')}"
+  outname = 'collation.pdf'
+  infiles = Dir['*.pdf'] - [outname]
+  cmd = "gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=\"#{outname}.pdf\" #{infiles.sort.join(' ')}"
   puts cmd
   system cmd
 end
