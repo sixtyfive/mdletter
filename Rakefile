@@ -9,7 +9,7 @@ end
 
 def sensible_browser_binary
   require 'mkmf'
-  binary_names = %w[chromium chromium-browser google-chrome google-chrome-stable google-chrome-beta google-chrome-dev]
+  binary_names = %w[google-chrome google-chrome-stable chromium chromium-browser google-chrome-beta google-chrome-dev]
   in_path = binary_names.map{find_executable _1}.compact
   raise 'No usable Chrome-ish binary found. Please install Chromium or Google Chrome!' unless in_path.any?
   in_path.first
