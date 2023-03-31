@@ -3,7 +3,7 @@
   src: url('../fonts/AvenirLTStd-Book.woff') format('woff');
 }
 
-body{padding:2em; font: normal 10.5pt/1.4em 'Avenir' !important;}
+body{padding:2em; font: normal 10.5pt/1.4em sans-serif !important;}
 main{margin-top:7.5em;}
 a{text-decoration:none;}
 a:visited{color:blue;}
