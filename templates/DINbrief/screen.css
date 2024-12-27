@@ -12,7 +12,7 @@ a:visited{color:blue;}
 #time_and_place{float:right;}
 #subject{font-weight:bold;margin-top:8em;}
 #signature{position:absolute;}
-#signature img{height:100px;margin-top:-2.5em;opacity:.9;}
+#signature img{height:90px;margin-top:-3.75em;opacity:.9;}
 #signee{margin-top:4em;}
 #attachments{margin-top:4em;padding:0;}
 #attachments li{list-style-type:circle;margin-left:.9em;}

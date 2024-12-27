@@ -1,6 +1,6 @@
-task :default do; system 'rake -T'; end
+task :default do; system 'rake build'; end
 
-desc 'rm *.pdf *.html'
+desc 'rm *.pdf *.html *.log'
 task :clean do
   cmd = "rm -f *.{log,pdf,html}"
   puts cmd
@@ -16,20 +16,27 @@ def sensible_browser_binary
 end
 
 desc 'md => html => pdf'
-task :build do
+task :all do
   @chromish = sensible_browser_binary
   Dir['*.md'].each do |md|
     next if %w[README.md NOTES.md].include? md
-    print "#{md} => "
-    html = md.gsub(/\.md/, '.html')
-    css  = md.gsub(/\.md/, '.css')
-    tpl  = md.gsub(/\.md/, '.template.html')
-    pdf  = md.gsub(/\.md/, '.pdf')
-    raise "No template file '#{tpl}' present for input file '#{md}'!" unless File.exist? File.join('templates',tpl)
-    `pandoc #{md} -o #{html} --css templates/#{css} --template templates/#{tpl} --standalone`
-    print "#{html} "
-    `#{@chromish} --headless --disable-gpu --print-to-pdf-no-header --no-margins --print-to-pdf=#{pdf} #{html}`
-    print "#{pdf}\n"
+
+    name = md.split('.').first
+    css1 = "templates/#{name}/screen.css"
+    css2 = "templates/#{name}/mobile.css"
+    css3 = "templates/#{name}/print.css"
+    layout = "templates/#{name}/layout.html"
+    raise "Missing template folder ('./templates/#{name}/') for input file '#{md}'!" unless Dir.exist? File.join('templates',name)
+    
+    puts "\e[1;34m#{md} => #{name}.html\e[0m"
+    cmd = "pandoc #{md} -o #{name}.html --standalone --css #{css1} --css #{css2} --css #{css3} --template #{layout}"
+    puts cmd
+    system cmd
+    
+    puts "\e[1;34m#{md} => #{name}.pdf\e[0m"
+    cmd = "#{@chromish} --headless --disable-gpu --no-pdf-header-footer --no-margins --print-to-pdf=#{name}.pdf #{name}.html"
+    puts cmd
+    system cmd
   end
 end
 

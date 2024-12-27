@@ -1,0 +1,38 @@
+/* this is to make the content be responsive to smaller
+ * screen sizes. it'll remove the photo and any background
+ * from the header section as well as make the main content
+ * only 1 column again.
+ *
+ * the aim is to be easily accessible on phone screens.
+ */
+
+@media only screen and (min-width: 100px) and (max-width: 1000px) {
+  body {
+    padding: none;
+    #content {
+      min-width: 100%;
+      max-width: auto;
+      margin: 0;
+      header {
+        background: none;
+        height: auto;
+        #description {width: 80%; font-size: 10pt;}
+        #photo {display: none;}
+        #coordinates {
+          position: relative;
+          padding: 20px 0 0 20px;
+          p {text-align: left;}
+        }
+      }
+      main {
+        padding: 0 0 0 10px;
+        display: box;
+        flex-wrap: none;
+        .column {
+          flex-basis: 100%;
+          box-sizing: none;
+        }
+      }
+    }
+  }
+}

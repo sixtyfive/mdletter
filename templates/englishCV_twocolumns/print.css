@@ -1,0 +1,58 @@
+@media print {
+  html, body {
+    width:  fit-content;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body, #content {
+    background: white;
+  }
+
+  @page {
+    margin: 0;
+    size: A4;
+  }
+  
+  header {
+    background: none;
+    height: 170px;
+  
+    #title {
+      font-size: 20pt;
+      padding-bottom: 2mm;
+      border-bottom: 1px solid black;
+      width: 210px
+    }
+
+    #name {
+      padding: 5mm 0 0 20px;
+      font-size: 11pt;
+    }
+
+    #description {
+      font-size: 11pt;
+      width: 55%;
+    }
+
+    #photo {
+      height: 160px;
+    }
+  
+    #coordinates {
+      right: 145px;
+      top: 90px;
+    }
+  }
+  
+  #content {
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    
+    main {
+      margin-top: 2cm;
+    }
+  }
+}
